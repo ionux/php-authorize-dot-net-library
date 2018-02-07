@@ -4,7 +4,7 @@
  *
  * GL CMS, v0.02
  * 
- * Copyright 2009, R. L. Morgan (http://www.rlmorgan.com).
+ * Copyright 2009-2018, Rrich Morgan (rich@richmorgan.me).
  * All rights reserved.
  *
  * PHP 5.x Class to handle Authorize.Net financial transactions.
@@ -413,19 +413,19 @@ class rlmAuthorizeDotNetTransaction {
                 case 39:
                     //echo "Card Code Response: ";
                     $ccr="";
-                    if($pstr_trimmed=="M") {
+                    if ($pstr_trimmed=="M") {
                         // = Match
                         $ccr="M";
-                    } elseif($pstr_trimmed=="N") {
+                    } elseif ($pstr_trimmed=="N") {
                         // = No Match
                         $ccr="N";
-                    } elseif($pstr_trimmed=="P") {
+                    } elseif ($pstr_trimmed=="P") {
                         // = Not Processed
                         $ccr="P";
-                    } elseif($pstr_trimmed=="S") {
+                    } elseif ($pstr_trimmed=="S") {
                         // = Should have been present
                         $ccr="S";
-                    } elseif($pstr_trimmed=="U") {
+                    } elseif ($pstr_trimmed=="U") {
                         // = Issuer unable to process request
                         $ccr="U";
                     } else {
@@ -467,7 +467,7 @@ class rlmAuthorizeDotNetTransaction {
                     // $pstr_trimmed;
                     break;  
                 default:
-                    if($j>=69){
+                    if ($j>=69) {
                         // Merchant-defined
                         // $pstr_trimmed;
                     } else {
@@ -479,7 +479,6 @@ class rlmAuthorizeDotNetTransaction {
      
             // Remove the part that we identified and work with the rest of the string
             $text = substr($text, $p);
- 
         }
  
         $timestamp = date("Y-m-d h:m:s");
@@ -492,13 +491,10 @@ class rlmAuthorizeDotNetTransaction {
             "TRANSACTIONID" => $transactionid,
             "MD5HASH"       => $md5hash,
             "CARDCODERESP"  => $ccr,
-            "RAWRESPDATA"   => $resp
-            "TIMESTAMP"     => $timestamp           
+            "RAWRESPDATA"   => $resp,
+            "TIMESTAMP"     => $timestamp
         );
- 
-        return $returned_data;  
-         
+
+        return $returned_data;
     }
-         
- 
 }
