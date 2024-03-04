@@ -4,7 +4,7 @@
  *
  * GL CMS, v0.02
  * 
- * Copyright 2009-2023, Rrich Morgan (rich@richmorgan.me).
+ * Copyright 2009-2024, Rich Morgan (rich@richmorgan.me).
  * All rights reserved.
  *
  * PHP 5.x Class to handle Authorize.Net financial transactions.
